@@ -680,7 +680,7 @@
       if (styleWidth && styleWidth !== 'auto' && styleWidth !== 'inherit' && styleWidth !== 
 'initial') {
         var a = w / h;
-        w = Number(style.width.replace('px', ''))|0;
+        w = Number(styleWidth.replace('px', ''))|0;
         h = (w / a)|0;
       }
     }
