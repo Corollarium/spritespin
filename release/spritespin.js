@@ -676,8 +676,9 @@
     var h = Math.floor(data.height || data.frameHeight || data.target.innerHeight());
     
     if (data.responsive && (typeof window.getComputedStyle === 'function')) {
-      var style = getComputedStyle(data.target[0]);
-      if (style.width) {
+      var styleWidth = getComputedStyle(data.target[0]).width;
+      if (styleWidth && styleWidth !== 'auto' && styleWidth !== 'inherit' && styleWidth !== 
+'initial') {
         var a = w / h;
         w = Number(style.width.replace('px', ''))|0;
         h = (w / a)|0;
