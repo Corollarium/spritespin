@@ -140,9 +140,14 @@
   }
 
   var resizeTimeout = null;
+  var cachedWidth = $(window).width();
   $(window).on('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(handleResizeEvent, 100);
+    var newWidth = $(this).width();
+	if (newWidth != cachedWidth) {
+   	  clearTimeout(resizeTimeout);
+	  resizeTimeout = setTimeout(handleResizeEvent, 100);
+      cachedWidth = newWidth;
+	}
   });
 
   for (var i = 0; i < Spin.eventNames.length; i += 1) {
